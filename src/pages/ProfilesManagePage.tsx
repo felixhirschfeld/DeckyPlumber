@@ -181,7 +181,7 @@ const ProfileEditModal: FC<{
           <Field
             key={idx}
             label={m.name}
-            description={mappingDescription(m.source_event, m.target_events)}
+            description={mappingDescription(m.source_event, m.target_events, t(L.DISABLED))}
           >
             <Focusable style={{ display: "flex" }}>
               <MenuButton onClick={(e) => showMappingMenu(idx, e)} />

@@ -11,7 +11,11 @@ import {
 } from "@decky/ui";
 import { FaPen, FaTrash } from "react-icons/fa";
 import EventSelector from "./EventSelector";
-import { CapabilityConfig, capabilityLabel, shortCapabilityLabel } from "./eventRegistry";
+import {
+  CapabilityConfig,
+  capabilityLabel,
+  shortCapabilityLabel,
+} from "./eventRegistry";
 import { L } from "../../i18n";
 import { t } from "i18next";
 
@@ -54,7 +58,9 @@ const MappingEditModal: FC<Props> = ({ mapping, onSave, closeModal }) => {
   const handleConfirm = () => {
     const finalName =
       name.trim() ||
-      `${capabilityLabel(sourceEvent)} → ${capabilityLabel(targetEvents[0])}`;
+      `${capabilityLabel(sourceEvent)} → ${
+        targetEvents.length > 0 ? capabilityLabel(targetEvents[0]) : t(L.DISABLED)
+      }`;
     onSave({
       name: finalName,
       source_event: sourceEvent,
@@ -133,6 +139,8 @@ const MappingEditModal: FC<Props> = ({ mapping, onSave, closeModal }) => {
               {editingTargetIdx === idx && (
                 <EventSelector
                   value={te}
+                  allowNone
+                  onSelectNone={() => removeTarget(idx)}
                   onChange={(c) =>
                     setTargetEvents((prev) =>
                       prev.map((t, i) => (i === idx ? c : t))

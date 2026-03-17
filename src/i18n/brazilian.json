@@ -38,6 +38,7 @@
     "TYPE": "Tipo",
     "SUB_TYPE": "Subtipo",
     "VALUE": "Valor",
+    "DISABLED": "Desativado",
 
     "ABOUT": "Sobre",
     "ABOUT_DESC": "Plugin Decky para configuração do controle InputPlumber.",

@@ -38,6 +38,7 @@
     "TYPE": "유형",
     "SUB_TYPE": "하위 유형",
     "VALUE": "값",
+    "DISABLED": "비활성화",
 
     "ABOUT": "정보",
     "ABOUT_DESC": "InputPlumber 컨트롤러 설정을 위한 Decky 플러그인.",

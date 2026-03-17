@@ -38,6 +38,7 @@
     "TYPE": "类型",
     "SUB_TYPE": "子类型",
     "VALUE": "值",
+    "DISABLED": "已禁用",
 
     "ABOUT": "关于",
     "ABOUT_DESC": "InputPlumber 控制器配置的 Decky 插件。",

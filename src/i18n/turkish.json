@@ -38,6 +38,7 @@
     "TYPE": "Tür",
     "SUB_TYPE": "Alt Tür",
     "VALUE": "Değer",
+    "DISABLED": "Devre Dışı",
 
     "ABOUT": "Hakkında",
     "ABOUT_DESC": "InputPlumber kumanda yapılandırması için Decky eklentisi.",

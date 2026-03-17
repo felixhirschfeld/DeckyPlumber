@@ -38,6 +38,7 @@
     "TYPE": "類型",
     "SUB_TYPE": "子類型",
     "VALUE": "值",
+    "DISABLED": "已停用",
 
     "ABOUT": "關於",
     "ABOUT_DESC": "用於 InputPlumber 控制器設定的 Decky 外掛。",

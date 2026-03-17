@@ -38,6 +38,7 @@
     "TYPE": "Тип",
     "SUB_TYPE": "Подтип",
     "VALUE": "Значение",
+    "DISABLED": "Отключено",
 
     "ABOUT": "О плагине",
     "ABOUT_DESC": "Плагин Decky для настройки контроллера InputPlumber.",

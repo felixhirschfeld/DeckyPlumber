@@ -38,6 +38,7 @@
     "TYPE": "タイプ",
     "SUB_TYPE": "サブタイプ",
     "VALUE": "値",
+    "DISABLED": "無効",
 
     "ABOUT": "バージョン情報",
     "ABOUT_DESC": "InputPlumber コントローラー設定用 Decky プラグイン。",

@@ -312,11 +312,12 @@ const MAX_INLINE_TARGETS = 3;
 
 export function mappingDescription(
   source: CapabilityConfig,
-  targets: CapabilityConfig[]
+  targets: CapabilityConfig[],
+  disabledLabel: string
 ): string {
   const src = shortCapabilityLabel(source);
 
-  if (targets.length === 0) return `${src} → (none)`;
+  if (targets.length === 0) return `${src} → ${disabledLabel}`;
 
   const shown = targets.slice(0, MAX_INLINE_TARGETS).map(shortCapabilityLabel);
   const rest = targets.length - MAX_INLINE_TARGETS;

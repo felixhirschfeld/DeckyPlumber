@@ -9,26 +9,42 @@ import {
 import { L } from "../../i18n";
 import { t } from "i18next";
 
+const DISABLED_OPTION = "__disabled__";
+
 type Props = {
   value: CapabilityConfig;
   onChange: (config: CapabilityConfig) => void;
   label?: string;
+  allowNone?: boolean;
+  onSelectNone?: () => void;
 };
 
-const EventSelector: FC<Props> = ({ value, onChange, label }) => {
+const EventSelector: FC<Props> = ({
+  value,
+  onChange,
+  label,
+  allowNone = false,
+  onSelectNone,
+}) => {
   const parsed = useMemo(() => describeCapability(value), [value]);
+  const disabledLabel = t(L.DISABLED);
 
   const selectedCategory = parsed?.category ?? "";
   const selectedSubType = parsed?.subType ?? "";
   const selectedValue = parsed?.value ?? "";
 
   const categoryOptions = useMemo(
-    () =>
-      Object.entries(EVENT_REGISTRY).map(([key, cat]) => ({
+    () => {
+      const options = Object.entries(EVENT_REGISTRY).map(([key, cat]) => ({
         data: key,
         label: cat.label,
-      })),
-    []
+      }));
+
+      if (!allowNone) return options;
+
+      return [{ data: DISABLED_OPTION, label: disabledLabel }, ...options];
+    },
+    [allowNone, disabledLabel]
   );
 
   const subTypeOptions = useMemo(() => {
@@ -62,6 +78,10 @@ const EventSelector: FC<Props> = ({ value, onChange, label }) => {
 
   const handleCategoryChange = (data: { data: string }) => {
     const catKey = data.data;
+    if (allowNone && catKey === DISABLED_OPTION) {
+      onSelectNone?.();
+      return;
+    }
     const cat = EVENT_REGISTRY[catKey];
     if (!cat) return;
     const firstStKey = Object.keys(cat.subTypes)[0];
